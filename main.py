@@ -1,4 +1,3 @@
-import cv2
 import streamlit as st
 import streamlit.components.v1 as components
 import numpy as np
@@ -13,9 +12,9 @@ def load_image(img):
     return im
 
 
-face = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
-eyes = cv2.CascadeClassifier('haarcascades/haarcascade_eye.xml')
-smile = cv2.CascadeClassifier('haarcascades/haarcascade_smile.xml')
+face = cv.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
+eyes = cv.CascadeClassifier('haarcascades/haarcascade_eye.xml')
+smile = cv.CascadeClassifier('haarcascades/haarcascade_smile.xml')
 
 
 @st.cache
