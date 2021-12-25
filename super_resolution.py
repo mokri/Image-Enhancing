@@ -28,13 +28,8 @@ def enhance_image(image_file):
     return image
 
 
-# loader = transforms.Compose(
-#     [
-#         #transforms.Resize((hr_height // 1, hr_height // 1)),
-#         transforms.ToTensor(),
-#         # transforms.Normalize(mean, std),
-#     ]
-# )
+
+
 loader = transforms.ToTensor()
 
 
