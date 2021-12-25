@@ -25,7 +25,8 @@ def enhance_image(image_file):
     lr = nn.functional.interpolate(generated_image, scale_factor=4)
     # save_image(lr, f"saved_images/image_genere.png", normalize=False)
     # image = Image.open('saved_images/image_genere.png')
-    return lr
+    image = transforms.ToPILImage(lr)
+    return image
 
 
 
