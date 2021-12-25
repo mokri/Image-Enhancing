@@ -47,7 +47,7 @@ def upload_image(image_file):
         orignal_image = load_image(image_file)
         enhanced_image = enhance_image(image_file)
 
-        return orignal_image, enhanced_image
+        return enhanced_image
 
 
 def sr(image):

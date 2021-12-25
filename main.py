@@ -116,11 +116,10 @@ def main():
         if enhance_type == 'Super-Resolution':
             if image_file is not None:
                 if st.button('enhance'):
-                    orignal_image, enhanced_image = sr(image_file)
+                    enhanced_image = sr(image_file)
+                    
+                    st.image(enhanced_image)
 
-                    col1, col2 = st.columns(2)
-                    col1.image([orignal_image], width=512, caption='Original (Real)')
-                    col2.image([enhanced_image], width=512, caption='High Resolution Image (Generated)')
 
         elif enhance_type == 'Gray-Scale':
             st.image(gray_scale(original_image))
