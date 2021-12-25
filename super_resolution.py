@@ -1,4 +1,4 @@
-# from torchvision.transforms import InterpolationMode
+from torchvision.transforms import InterpolationMode
 from Generator.gen import model
 import torch.nn as nn
 import numpy as np
@@ -15,7 +15,7 @@ std = np.array([0.229, 0.224, 0.225])
 
 def load_image(image_file):
     img = Image.open(image_file)
-    # img.save("saved_images/image_orginal.png")
+    img.save("saved_images/image_orginal.png")
     return img
 
 
@@ -30,7 +30,7 @@ def enhance_image(image_file):
 
 loader = transforms.Compose(
     [
-        # transforms.Resize((hr_height // 4, hr_height // 4), InterpolationMode.BICUBIC),
+        transforms.Resize((hr_height // 4, hr_height // 4), InterpolationMode.BICUBIC),
         transforms.ToTensor(),
         transforms.Normalize(mean, std),
     ]
