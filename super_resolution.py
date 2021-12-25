@@ -15,7 +15,7 @@ std = np.array([0.229, 0.224, 0.225])
 
 def load_image(image_file):
     img = Image.open(image_file)
-    img.save("saved_images/image_orginal.png")
+    img.save("/saved_images/image_orginal.png")
     return img
 
 
