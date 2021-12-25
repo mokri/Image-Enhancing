@@ -4,8 +4,9 @@ import numpy as np
 from torchvision.utils import save_image
 from torch.autograd import Variable
 import torchvision.transforms as transforms
-import torchvision.transforms.functional as F
 from PIL import Image
+from matplotlib import pyplot as plt
+
 
 hr_height = 256
 hr_width = 256
@@ -22,10 +23,11 @@ def load_image(image_file):
 def enhance_image(image_file):
     image = image_loader(image_file)
     generated_image = model(image)
-    lr = nn.functional.interpolate(generated_image, scale_factor=4)
+    # lr = nn.functional.interpolate(generated_image, scale_factor=4)
     # save_image(lr, f"saved_images/image_genere.png", normalize=False)
     # image = Image.open('saved_images/image_genere.png')
-    image = F.ToPILImage(lr)
+    image = transforms.ToPILImage()(generated_image.squeeze(0))
+    
     return image
 
 
