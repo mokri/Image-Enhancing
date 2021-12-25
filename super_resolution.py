@@ -28,18 +28,19 @@ def enhance_image(image_file):
     return image
 
 
-loader = transforms.Compose(
-    [
-        transforms.Resize((hr_height // 4, hr_height // 4), InterpolationMode.BICUBIC),
-        transforms.ToTensor(),
-        transforms.Normalize(mean, std),
-    ]
-)
+# loader = transforms.Compose(
+#     [
+#         #transforms.Resize((hr_height // 1, hr_height // 1)),
+#         transforms.ToTensor(),
+#         # transforms.Normalize(mean, std),
+#     ]
+# )
+loader = transforms.ToTensor()
 
 
 def image_loader(image_name):
     """load image, returns cuda tensor"""
-    image = Image.open(image_name)
+    image = Image.open(image_name).convert('RGB')
     image = loader(image).float()
     image = Variable(image, requires_grad=True)
     image = image.unsqueeze(0)
@@ -56,3 +57,4 @@ def upload_image(image_file):
 
 def sr(image):
     return upload_image(image)
+
