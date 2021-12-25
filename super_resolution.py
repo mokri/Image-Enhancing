@@ -1,10 +1,10 @@
-from torchvision.transforms import InterpolationMode
 from Generator.gen import model
 import torch.nn as nn
 import numpy as np
 from torchvision.utils import save_image
 from torch.autograd import Variable
 import torchvision.transforms as transforms
+import torchvision.transforms.functional as F
 from PIL import Image
 
 hr_height = 256
@@ -25,7 +25,7 @@ def enhance_image(image_file):
     lr = nn.functional.interpolate(generated_image, scale_factor=4)
     # save_image(lr, f"saved_images/image_genere.png", normalize=False)
     # image = Image.open('saved_images/image_genere.png')
-    image = transforms.ToPILImage()(lr)
+    image = F.ToPILImage(lr)
     return image
 
 
